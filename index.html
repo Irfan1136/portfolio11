@@ -193,9 +193,15 @@ section{padding:80px 0}
 .achieve-card{display:flex;gap:16px;align-items:flex-start}
 .achieve-icon{width:44px;height:44px;border-radius:12px;background:var(--primary-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem}
 .achieve-card p{font-size:.85rem;color:var(--fg2);line-height:1.7}
-.extras{display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap}
-.extras span{padding:10px 20px;border-radius:20px;font-size:.8rem;font-weight:600;background:var(--primary-bg);color:var(--primary);border:1px solid rgba(239,68,68,.15);transition:all .3s}
-.extras span:hover{transform:scale(1.05);box-shadow:0 4px 15px var(--primary-bg)}
+.achieve-highlight{border:1.5px solid var(--primary);background:linear-gradient(135deg,var(--card),var(--primary-bg));box-shadow:0 8px 30px var(--primary-bg);position:relative;overflow:hidden}
+.achieve-highlight::after{content:'LEADERSHIP';position:absolute;top:10px;right:12px;font-size:.6rem;font-weight:800;letter-spacing:1.5px;color:var(--primary);background:var(--primary-bg);padding:3px 8px;border-radius:8px;border:1px solid var(--primary)}
+.achieve-role-title{font-size:.95rem;font-weight:700;color:var(--fg);margin-bottom:4px}
+.highlight-glow{background:linear-gradient(135deg,rgba(239,68,68,.25),rgba(96,165,250,.25));box-shadow:0 0 15px var(--primary-bg);font-size:1.3rem}
+
+.extras{display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.extras span,.highlight-pill{padding:12px 24px;border-radius:30px;font-size:.88rem;font-weight:700;background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(96,165,250,.12));color:var(--fg);border:1.5px solid var(--primary);box-shadow:0 4px 20px var(--primary-bg);display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:all;transition:all .35s cubic-bezier(.175,.885,.32,1.275)}
+.extras span:hover,.extras span:focus,.extras span.active-highlight,.highlight-pill:hover,.highlight-pill:focus,.highlight-pill.active-highlight{transform:scale(1.06) translateY(-3px);background:linear-gradient(135deg,var(--primary),var(--primary-glow));color:#fff;box-shadow:0 10px 30px var(--space-red);border-color:#fff}
+.pill-icon{font-size:1.1rem}
 
 /* CONTACT SECTION WITH AVATAR BLOCK */
 .contact-wrapper{display:flex;align-items:center;justify-content:center;gap:36px;max-width:920px;margin:0 auto}
@@ -216,11 +222,11 @@ section{padding:80px 0}
 .contact-item:hover .contact-icon{background:var(--primary);border-color:var(--primary);transform:scale(1.1) rotate(-6deg);box-shadow:0 8px 20px var(--primary-bg)}
 .contact-item:hover .contact-icon svg{color:#fff;transform:scale(1.1)}
 .contact-item:hover .contact-icon::before{opacity:1}
-.contact-details{display:flex;flex-direction:column;flex:1}
+.contact-details{display:flex;flex-direction:column;flex:1;min-width:0}
 .contact-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--primary);margin-bottom:2px}
-.contact-value{font-size:.95rem;font-weight:600;color:var(--fg);transition:color .3s}
+.contact-value{font-size:.95rem;font-weight:600;color:var(--fg);transition:color .3s;white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
 .contact-item:hover .contact-value{color:var(--primary)}
-.contact-action-hint{font-size:.8rem;font-weight:600;color:var(--primary);opacity:0;transform:translateX(-10px);transition:all .3s ease;display:flex;align-items:center;gap:4px}
+.contact-action-hint{font-size:.8rem;font-weight:600;color:var(--primary);opacity:0;transform:translateX(-10px);transition:all .3s ease;display:flex;align-items:center;gap:4px;white-space:nowrap;flex-shrink:0}
 .contact-item:hover .contact-action-hint{opacity:1;transform:translateX(0)}
 .footer{text-align:center;padding:24px;font-size:.75rem;color:var(--fg2)}
 
@@ -247,7 +253,11 @@ section{padding:80px 0}
   .contact-wrapper{flex-direction:column;gap:20px}
   .contact-avatar-block{width:200px;height:270px}
   .contact-avatar-img{height:220px}
-  .contact-card{width:100%}
+  .contact-card{width:100%;padding:10px 8px}
+  .contact-item{padding:14px 12px;gap:12px}
+  .contact-icon{width:42px;height:42px;flex-shrink:0}
+  .contact-value{font-size:clamp(0.78rem, 3.6vw, 0.92rem);white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
+  .contact-action-hint{display:none}
   .edu-grid,.skills-grid,.achieve-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr}
   section{padding:60px 0}
@@ -257,6 +267,12 @@ section{padding:80px 0}
   .hero-img .img-wrapper{width:160px;height:160px;margin:0 auto}
   .hero-img .avatar-companion{left:-45px;bottom:-70px;width:135px;height:240px}
   .hero-btns .btn{width:100%;justify-content:center}
+  .contact-card{padding:8px 6px}
+  .contact-item{padding:12px 10px;gap:10px}
+  .contact-icon{width:38px;height:38px}
+  .contact-icon svg{width:18px;height:18px}
+  .contact-label{font-size:.65rem}
+  .contact-value{font-size:clamp(0.72rem, 3.4vw, 0.88rem);white-space:nowrap;word-break:keep-all}
 }
 </style>
 </head>
@@ -465,14 +481,28 @@ section{padding:80px 0}
     <p class="section-label">Achievements</p>
     <h2 class="section-title">Recognition & Leadership</h2>
     <div class="achieve-grid">
+      <div class="card achieve-card achieve-highlight reveal">
+        <div class="achieve-icon highlight-glow">🌟</div>
+        <div>
+          <h3 class="achieve-role-title">CSE Department Association Secretary</h3>
+          <p>Served as Association Secretary for the CSE Department, leading student initiatives, organizing technical symposiums, and managing department activities.</p>
+        </div>
+      </div>
+      <div class="card achieve-card achieve-highlight reveal">
+        <div class="achieve-icon highlight-glow">👑</div>
+        <div>
+          <h3 class="achieve-role-title">Student Developer Club President</h3>
+          <p>President of the Student Developer Club, leading peer coding workshops, hackathons, and fostering a collaborative developer ecosystem.</p>
+        </div>
+      </div>
       <div class="card achieve-card reveal"><div class="achieve-icon">🏆</div><p>Secured 1st Prize in PPT Presentation & Project Expo at college-level events.</p></div>
       <div class="card achieve-card reveal"><div class="achieve-icon">🥈</div><p>Secured 2nd Prize in Project Fiesta (Engineers' Day) at Al-Ameen Engineering College.</p></div>
       <div class="card achieve-card reveal"><div class="achieve-icon">👥</div><p>Participated in Project Presentation at NEXUS'2K24, National Level Symposium at Kongu Engineering College.</p></div>
       <div class="card achieve-card reveal"><div class="achieve-icon">💡</div><p>Actively participated in AIM'25 Hackathon organized by Infynd Pvt. Ltd., Coimbatore.</p></div>
     </div>
     <div class="extras">
-      <span>CSE Department Association Secretary</span>
-      <span>Student Developer Club President</span>
+      <span class="highlight-pill" tabindex="0" title="Click to highlight leadership role"><span class="pill-icon">🌟</span> CSE Department Association Secretary</span>
+      <span class="highlight-pill" tabindex="0" title="Click to highlight leadership role"><span class="pill-icon">👑</span> Student Developer Club President</span>
     </div>
   </div>
 </section>
@@ -568,7 +598,9 @@ window.addEventListener('resize', checkMobile);
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
 }, {threshold: 0.15});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+document.querySelectorAll('.highlight-pill').forEach(pill => {
+  pill.addEventListener('click', () => pill.classList.toggle('active-highlight'));
+});
 setThemeIcon();
 </script>
 </body>
