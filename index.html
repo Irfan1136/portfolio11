@@ -98,22 +98,22 @@ body.nav-push nav .inner{max-width:980px;padding:10px 18px;margin-top:18px;trans
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 20px 60px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:20%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);opacity:.06;border-radius:50%;filter:blur(80px)}
 .hero::after{content:'';position:absolute;bottom:20%;right:-10%;width:350px;height:350px;background:radial-gradient(circle,var(--primary-glow) 0%,transparent 70%);opacity:.05;border-radius:50%;filter:blur(80px)}
-.hero-content{display:flex;align-items:center;gap:60px;max-width:1100px;width:100%}
-.hero-text{flex:1}
+.hero-content{display:flex;align-items:center;gap:60px;max-width:1100px;width:100%;position:relative;z-index:10}
+.hero-text{flex:1;position:relative;z-index:60}
 .hero-label{font-size:.8rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
 .hero-title{font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.1;margin-bottom:16px}
 .hero-title span{background:linear-gradient(135deg,var(--primary),var(--primary-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-desc{font-size:1.05rem;color:var(--fg2);max-width:480px;margin-bottom:28px;line-height:1.7}
-.hero-btns{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
-.btn{padding:12px 24px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;border:none;transition:all .35s cubic-bezier(.175,.885,.32,1.275);display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;text-decoration:none}
+.hero-btns{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;align-items:center;position:relative;z-index:70}
+.btn{padding:12px 24px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;border:none;transition:all .35s cubic-bezier(.175,.885,.32,1.275);display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;text-decoration:none;z-index:80;pointer-events:auto}
 .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-glow));color:#fff;box-shadow:0 4px 20px var(--primary-bg)}
-.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 30px var(--space-red);color:#fff}
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 30px var(--space-red);color:#fff}
 .btn-outline{background:transparent;border:1.5px solid var(--card-border);color:var(--fg)}
-.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-3px) scale(1.03);box-shadow:0 8px 20px var(--primary-bg)}
-.btn-cv{background:var(--primary-bg);border:1.5px solid var(--primary);color:var(--primary);box-shadow:0 4px 15px var(--primary-bg)}
-.btn-cv:hover{background:linear-gradient(135deg,var(--primary),var(--primary-glow));color:#fff;transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px var(--primary-bg)}
+.btn-outline:hover,.btn-outline:active,.btn-outline:focus{border-color:var(--primary);color:var(--primary);transform:translateY(-3px) scale(1.03);box-shadow:0 8px 20px var(--primary-bg)}
+.btn-cv{background:var(--primary-bg);border:1.5px solid var(--primary);color:var(--primary);box-shadow:0 4px 15px var(--primary-bg);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.btn-cv:hover,.btn-cv:active,.btn-cv:focus{background:linear-gradient(135deg,var(--primary),var(--primary-glow))!important;color:#fff!important;transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px var(--primary-bg)!important}
 .btn-cv svg{transition:transform .3s ease}
-.btn-cv:hover svg{transform:translateY(3px)}
+.btn-cv:hover svg,.btn-cv:active svg{transform:translateY(3px)}
 .hero-socials{display:flex;gap:12px}
 .hero-socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--fg2);transition:all .35s ease;position:relative;overflow:hidden;background:rgba(255,255,255,.02)}
 .hero-socials a::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(239,68,68,.18),rgba(96,165,250,.12));opacity:0;transition:opacity .3s ease}
@@ -273,7 +273,53 @@ section{padding:80px 0}
   .contact-icon svg{width:18px;height:18px}
   .contact-label{font-size:.65rem}
   .contact-value{font-size:clamp(0.72rem, 3.4vw, 0.88rem);white-space:nowrap;word-break:keep-all}
+/* Scrollable Certifications Links Container Inside Cert Card */
+.cert-links-scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+  max-height: 95px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scroll-behavior: smooth;
 }
+.cert-links-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+.cert-links-scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+.cert-links-scrollable::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* Small Screen Auto Popup Avatar (without hover) */
+@media (max-width: 768px) {
+  .hero-img .avatar-companion.mobile-auto-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(0) translateY(0) scale(1) rotate(-6deg) !important;
+  }
+  .hero-img .avatar-companion.mobile-auto-popup .avatar-speech-bubble {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(-6px) scale(1) !important;
+  }
+}
+
+/* Colored Skill Tag Hover Accent Colors */
+.skill-tag.tag-html:hover { border-color: #E34F26 !important; color: #E34F26 !important; }
+.skill-tag.tag-css:hover { border-color: #1572B6 !important; color: #1572B6 !important; }
+.skill-tag.tag-js:hover { border-color: #F7DF1E !important; color: #F7DF1E !important; }
+.skill-tag.tag-python:hover { border-color: #3776AB !important; color: #3776AB !important; }
+.skill-tag.tag-sql:hover { border-color: #00758F !important; color: #00758F !important; }
+.skill-tag.tag-uiux:hover { border-color: #F24E1E !important; color: #F24E1E !important; }
+.skill-tag.tag-git:hover { border-color: #F05032 !important; color: #F05032 !important; }
+.skill-tag.tag-linux:hover { border-color: #FCC624 !important; color: #FCC624 !important; }
+.skill-tag.tag-powerbi:hover { border-color: #F2C811 !important; color: #F2C811 !important; }
 </style>
 </head>
 <body>
@@ -335,7 +381,7 @@ section{padding:80px 0}
       <a href="#projects">Projects</a>
       <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
-      <a href="Mohamed_Irfan_CV.pdf" target="_blank" rel="noopener noreferrer" download="Mohamed_Irfan_CV.pdf" style="color:var(--primary);font-weight:600;" title="Download CV">
+      <a href="Mohamed_Irfan_CV.pdf" download="Mohamed_Irfan_CV.pdf" onclick="downloadCV(event)" style="color:var(--primary);font-weight:600;" title="Download CV">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;vertical-align:-2px;" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV
       </a>
       <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle light and dark mode">
@@ -358,7 +404,7 @@ section{padding:80px 0}
   <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#achievements" onclick="closeMenu()">Achievements</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="Mohamed_Irfan_CV.pdf" target="_blank" rel="noopener noreferrer" download="Mohamed_Irfan_CV.pdf" onclick="closeMenu()" style="color:var(--primary);font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+  <a href="Mohamed_Irfan_CV.pdf" download="Mohamed_Irfan_CV.pdf" onclick="downloadCV(event);setTimeout(closeMenu,200);" style="color:var(--primary);font-weight:700;display:inline-flex;align-items:center;gap:6px;">
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CV
   </a>
 </div>
@@ -375,7 +421,7 @@ section{padding:80px 0}
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.24-.75 6.76 5.34 6.76-5.34H5.24Zm13.51 2.13-6.19 4.9a1 1 0 0 1-1.12 0L5.25 8.13v9.12c0 .41.34.75.75.75h12c.41 0 .75-.34.75-.75V8.13Z"/></svg>
           Get In Touch
         </a>
-        <a href="Mohamed_Irfan_CV.pdf" target="_blank" rel="noopener noreferrer" download="Mohamed_Irfan_CV.pdf" class="btn btn-cv" aria-label="Download CV">
+        <a href="Mohamed_Irfan_CV.pdf" download="Mohamed_Irfan_CV.pdf" onclick="downloadCV(event)" class="btn btn-cv" aria-label="Download CV">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -425,7 +471,16 @@ section{padding:80px 0}
   I build practical solutions, analyze data, troubleshoot technical issues, and use technology
   to solve real-world problems.
 </p>
-    <br>
+    <div style="display:flex;justify-content:center;margin:18px 0 32px;" class="reveal">
+      <a href="Mohamed_Irfan_CV.pdf" download="Mohamed_Irfan_CV.pdf" onclick="downloadCV(event)" class="btn btn-cv" aria-label="Download CV">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download CV
+      </a>
+    </div>
     <div class="edu-grid">
       <div class="card edu-card reveal">
         <div>
@@ -463,7 +518,7 @@ section{padding:80px 0}
           <p class="year">Certifications</p>
           <h3>EC Council & Udemy</h3>
         </div>
-        <div class="cert-links" style="display:flex;flex-direction:column;gap:8px;margin-top:14px;">
+        <div class="cert-links cert-links-scrollable">
           <a href="https://learn.eccouncil.org/certificate/167df997-6b45-4c06-ae6b-5d2ef38466c0" target="_blank" rel="noreferrer" class="cert-link" title="Verify EC Council Certificate" style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Learn Brackets (EC Council) →
@@ -471,6 +526,10 @@ section{padding:80px 0}
           <a href="https://www.udemy.com/certificate/UC-16f1929e-f9ab-4c89-a48c-dfcad010c95e/" target="_blank" rel="noreferrer" class="cert-link" title="Verify Udemy Certificate" style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             HTML & CSS (Udemy) →
+          </a>
+          <a href="https://www.udemy.com/certificate/UC-e07085ef-9686-4f46-99ae-382a5c4cfc6b/" target="_blank" rel="noreferrer" class="cert-link" title="Verify Udemy Certificate" style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            JavaScript (Udemy) →
           </a>
         </div>
       </div>
@@ -486,36 +545,40 @@ section{padding:80px 0}
       <div class="skill-group reveal">
         <h3>Technical</h3>
         <div class="skill-tags">
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3l1.8 16.2L12 21l6.2-1.8L20 3H4z"/><path d="M16 7.5H8.5l.5 4.5h6.5l-.6 5.5L12 18.5l-2.9-1-.2-2.5"/></svg>
+          <span class="skill-tag tag-html" title="HTML5">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm17.65 4.962H5.064l.322 3.6h9.194l-.364 4.095-4.226 1.14-4.226-1.14-.268-3.003H5.172l.497 5.586L11.97 21l6.301-1.76 1.054-11.851-.175-2.427z"/><path fill="#EF652A" d="M11.97 21l6.301-1.76 1.054-11.851H11.97v13.611z"/></svg>
             HTML
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3l1.8 16.2L12 21l6.2-1.8L20 3H4z"/><path d="M7.5 7.5h9l-1 9L12 17.5l-3.5-1-.2-2.5"/></svg>
+          <span class="skill-tag tag-css" title="CSS3">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#1572B6" d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm17.65 4.962H5.064l.322 3.6h9.194l-.364 4.095-4.226 1.14-4.226-1.14-.268-3.003H5.172l.497 5.586L11.97 21l6.301-1.76 1.054-11.851-.175-2.427z"/><path fill="#33A9DC" d="M11.97 21l6.301-1.76 1.054-11.851H11.97v13.611z"/></svg>
             CSS
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span class="skill-tag tag-js" title="JavaScript">
+            <svg viewBox="0 0 24 24" width="15" height="15"><rect width="24" height="24" rx="3" fill="#F7DF1E"/><path fill="#000000" d="M6.78 18.25c.37.66.9 1.16 1.83 1.16.82 0 1.34-.41 1.34-1.01 0-.7-.54-.95-1.46-1.35l-.5-.22c-1.43-.61-2.38-1.37-2.38-2.98 0-2.22 1.76-3.4 4.22-3.4 1.73 0 2.96.56 3.66 1.84l-1.63 1.05c-.38-.68-.88-.95-1.72-.95-.74 0-1.19.38-1.19.86 0 .61.42.86 1.37 1.28l.5.21c1.68.73 2.58 1.45 2.58 3.09 0 2.45-1.9 3.52-4.57 3.52-2.38 0-3.79-.98-4.47-2.38l1.62-1.02zm10.74 0c.41.72 1.06 1.16 2.01 1.16.9 0 1.48-.41 1.48-1.22 0-1.92-3.88-1.33-3.88-3.9 0-2.14 1.66-3.4 4.07-3.4 1.54 0 2.65.46 3.4 1.71l-1.57 1.01c-.41-.65-.89-.88-1.64-.88-.69 0-1.1.34-1.1.8 0 1.71 3.88 1.17 3.88 3.91 0 2.37-1.76 3.53-4.57 3.53-2.3 0-3.69-.97-4.32-2.39l1.74-1.04z"/></svg>
+            JavaScript
+          </span>
+          <span class="skill-tag tag-sql" title="SQL Database">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#00758F" d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm0 6c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2V8c0 .66 3.58 2 8 2zm0 5c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2v-3c0 .66 3.58 2 8 2z"/></svg>
             SQL
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-5.5 0-5 2.4-5 2.4V7.6h5v.8H5.6s-3.6.4-3.6 5.2c0 4.8 3.1 5 3.1 5H7v-2.7c0-3 2.5-3 2.5-3h4.9s2.6 0 2.6-2.5V7.4s.5-5.4-5-5.4zm-2.7 2.7a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/><path d="M12 22c5.5 0 5-2.4 5-2.4v-3.2h-5v-.8h6.4s3.6-.4 3.6-5.2c0-4.8-3.1-5-3.1-5H17v2.7c0 3-2.5 3-2.5 3H9.6s-2.6 0-2.6 2.5v7.1s-.5 5.4 5 5.4zm2.7-2.7a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2z"/></svg>
+          <span class="skill-tag tag-python" title="Python">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#3776AB" d="M11.89 2c-5.5 0-5.14 2.39-5.14 2.39v2.48h5.24v.76H4.72S2 7.22 2 12.08c0 4.86 2.38 4.7 2.38 4.7h1.42v-2.52s-.08-3.02 2.97-3.02h5.16s2.85.05 2.85-2.77V4.79S17.43 2 11.89 2zm-2.7 2.53a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/><path fill="#FFD43B" d="M12.11 22c5.5 0 5.14-2.39 5.14-2.39v-2.48h-5.24v-.76h7.27s2.72.41 2.72-4.45c0-4.86-2.38-4.7-2.38-4.7h-1.42v2.52s.08 3.02-2.97 3.02h-5.16s-2.85-.05-2.85 2.77v3.77S6.57 22 12.11 22zm2.7-2.53a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1z"/></svg>
             Python
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="13" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+          <span class="skill-tag tag-powerbi" title="Power BI">
+            <svg viewBox="0 0 24 24" width="15" height="15"><rect x="2" y="13" width="5" height="9" rx="1" fill="#F2C811" opacity="0.8"/><rect x="9.5" y="8" width="5" height="14" rx="1" fill="#F2C811"/><rect x="17" y="3" width="5" height="19" rx="1" fill="#F2C811"/></svg>
             Power BI
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.65 0-.43-.17-.83-.46-1.13-.29-.3-.47-.7-.47-1.17 0-.92.73-1.65 1.65-1.65H16c3.3 0 6-2.7 6-6 0-4.97-4.48-8.4-10-8.4z"/></svg>
+          <span class="skill-tag tag-uiux" title="Ui/Ux & Figma">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#F24E1E" d="M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path fill="#A259FF" d="M8 4a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path fill="#F24E1E" d="M4 8a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4z"/><path fill="#FF7262" d="M4 16a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4z"/><path fill="#1ABCFE" d="M12 4h4a4 4 0 1 1-4 4V4z"/><path fill="#0ACF83" d="M4 16a4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8a4 4 0 0 0-4 4z"/></svg>
             UI/UX
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 24a4 4 0 0 1-4-4 4 4 0 0 1 4-4h4v4a4 4 0 0 1-4 4zM4 12a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4zm0-8a4 4 0 0 1 4-4h4v8H8a4 4 0 0 1-4-4zm8-4h4a4 4 0 0 1 0 8h-4V0zm4 12a4 4 0 0 1 0 8h-4v-8h4z"/></svg>
-            Figma
+          <span class="skill-tag tag-git" title="Git / GitHub">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#F05032" d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.216 1.379-.07 1.889.44.516.515.655 1.258.428 1.9l2.748 2.747c.643-.226 1.385-.084 1.898.429.702.702.702 1.84 0 2.542-.703.703-1.84.703-2.543 0-.544-.544-.674-1.341-.393-2.012L13.01 8.948v5.528c.162.08.318.187.455.324.702.702.702 1.841 0 2.543-.703.702-1.84.702-2.543 0-.702-.702-.702-1.84 0-2.543.167-.167.356-.285.556-.356V8.804c-.2-.07-.39-.188-.556-.356-.54-.54-.67-1.334-.396-2.003L7.747 3.682.454 10.976c-.605.604-.605 1.582 0 2.187l10.48 10.479c.604.604 1.582.604 2.187 0l10.425-10.425c.605-.604.605-1.582 0-2.187z"/></svg>
+            Git/GitHub
           </span>
-          <span class="skill-tag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span class="skill-tag tag-linux" title="Linux">
+            <svg viewBox="0 0 24 24" width="15" height="15"><path fill="#FCC624" d="M12.38 0c-3.15 0-5.75 3.2-5.75 7.15 0 2.45.98 4.63 2.5 5.92-1.92 1.86-3.13 4.54-3.13 7.53 0 .76.08 1.5.23 2.22C6.71 23.4 7.6 24 8.58 24c.73 0 1.43-.32 1.95-.92 1.05.61 2.27.92 3.52.92 1.25 0 2.47-.31 3.52-.92.52.6 1.22.92 1.95.92.98 0 1.87-.6 2.35-1.18.15-.72.23-1.46.23-2.22 0-2.99-1.21-5.67-3.13-7.53 1.52-1.29 2.5-3.47 2.5-5.92C21.48 3.2 18.88 0 15.73 0h-3.35z"/><ellipse cx="9.5" cy="6.5" rx="1" ry="1.5" fill="#000"/><ellipse cx="14.5" cy="6.5" rx="1" ry="1.5" fill="#000"/><polygon points="12,8.5 10.5,10.5 13.5,10.5" fill="#E69100"/></svg>
             Linux
           </span>
         </div>
@@ -777,6 +840,37 @@ function updateActiveNav() {
 }
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
+
+// Small screen auto-popup avatar for 1 second on initial load (without hover)
+function autoPopupAvatarOnMobile() {
+  if (window.innerWidth <= 768) {
+    const avatarComp = document.querySelector('.hero-img .avatar-companion');
+    if (avatarComp) {
+      setTimeout(() => {
+        avatarComp.classList.add('mobile-auto-popup');
+        setTimeout(() => {
+          avatarComp.classList.remove('mobile-auto-popup');
+        }, 1000);
+      }, 500);
+    }
+  }
+}
+window.addEventListener('load', autoPopupAvatarOnMobile);
+
+// Universal CV download handler
+function downloadCV(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  const fileUrl = 'Mohamed_Irfan_CV.pdf';
+  const a = document.createElement('a');
+  a.href = fileUrl;
+  a.download = 'Mohamed_Irfan_CV.pdf';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    if (a.parentNode) a.parentNode.removeChild(a);
+  }, 200);
+}
 
 setThemeIcon();
 </script>
