@@ -1876,93 +1876,129 @@
         white-space: nowrap;
         word-break: keep-all
       }
+    }
 
-      /* Scrollable Certifications Links Container Inside Cert Card */
-      .cert-links-scrollable {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 14px;
-        max-height: 95px;
-        overflow-y: auto;
-        padding-right: 4px;
-        scroll-behavior: smooth;
+    /* Scrollable Certifications Links Container Inside Cert Card */
+    .cert-links-scrollable {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+      max-height: 145px;
+      overflow-y: auto;
+      padding-right: 6px;
+      scroll-behavior: smooth;
+    }
+
+    .cert-links-scrollable::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .cert-links-scrollable::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 4px;
+    }
+
+    .cert-links-scrollable::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    /* Small Screen Auto Popup Avatar (without hover) */
+    @media (max-width: 768px) {
+      .hero-img .avatar-companion.mobile-auto-popup {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateX(0) translateY(0) scale(1) rotate(-6deg) !important;
       }
 
-      .cert-links-scrollable::-webkit-scrollbar {
-        width: 4px;
+      .hero-img .avatar-companion.mobile-auto-popup .avatar-speech-bubble {
+        opacity: 1 !important;
+        transform: translateX(-50%) translateY(-6px) scale(1) !important;
       }
+    }
 
-      .cert-links-scrollable::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 4px;
-      }
+    /* Colored Skill Tag Hover Accent Colors */
+    .skill-tag.tag-html:hover {
+      border-color: #E34F26 !important;
+      color: #E34F26 !important;
+    }
 
-      .cert-links-scrollable::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 4px;
-      }
+    .skill-tag.tag-css:hover {
+      border-color: #1572B6 !important;
+      color: #1572B6 !important;
+    }
 
-      /* Small Screen Auto Popup Avatar (without hover) */
-      @media (max-width: 768px) {
-        .hero-img .avatar-companion.mobile-auto-popup {
-          opacity: 1 !important;
-          visibility: visible !important;
-          pointer-events: auto !important;
-          transform: translateX(0) translateY(0) scale(1) rotate(-6deg) !important;
-        }
+    .skill-tag.tag-js:hover {
+      border-color: #F7DF1E !important;
+      color: #F7DF1E !important;
+    }
 
-        .hero-img .avatar-companion.mobile-auto-popup .avatar-speech-bubble {
-          opacity: 1 !important;
-          transform: translateX(-50%) translateY(-6px) scale(1) !important;
-        }
-      }
+    .skill-tag.tag-react:hover {
+      border-color: #61DAFB !important;
+      color: #61DAFB !important;
+    }
 
-      /* Colored Skill Tag Hover Accent Colors */
-      .skill-tag.tag-html:hover {
-        border-color: #E34F26 !important;
-        color: #E34F26 !important;
-      }
+    .skill-tag.tag-python:hover {
+      border-color: #3776AB !important;
+      color: #3776AB !important;
+    }
 
-      .skill-tag.tag-css:hover {
-        border-color: #1572B6 !important;
-        color: #1572B6 !important;
-      }
+    .skill-tag.tag-fastapi:hover {
+      border-color: #009688 !important;
+      color: #009688 !important;
+    }
 
-      .skill-tag.tag-js:hover {
-        border-color: #F7DF1E !important;
-        color: #F7DF1E !important;
-      }
+    .skill-tag.tag-sql:hover {
+      border-color: #00758F !important;
+      color: #00758F !important;
+    }
 
-      .skill-tag.tag-python:hover {
-        border-color: #3776AB !important;
-        color: #3776AB !important;
-      }
+    .skill-tag.tag-genai:hover {
+      border-color: #8E75FF !important;
+      color: #8E75FF !important;
+    }
 
-      .skill-tag.tag-sql:hover {
-        border-color: #00758F !important;
-        color: #00758F !important;
-      }
+    .skill-tag.tag-llm:hover {
+      border-color: #A855F7 !important;
+      color: #A855F7 !important;
+    }
 
-      .skill-tag.tag-uiux:hover {
-        border-color: #F24E1E !important;
-        color: #F24E1E !important;
-      }
+    .skill-tag.tag-numpy:hover {
+      border-color: #4DABCF !important;
+      color: #4DABCF !important;
+    }
 
-      .skill-tag.tag-git:hover {
-        border-color: #F05032 !important;
-        color: #F05032 !important;
-      }
+    .skill-tag.tag-pandas:hover {
+      border-color: #E70488 !important;
+      color: #E70488 !important;
+    }
 
-      .skill-tag.tag-linux:hover {
-        border-color: #FCC624 !important;
-        color: #FCC624 !important;
-      }
+    .skill-tag.tag-powerbi:hover {
+      border-color: #F2C811 !important;
+      color: #F2C811 !important;
+    }
 
-      .skill-tag.tag-powerbi:hover {
-        border-color: #F2C811 !important;
-        color: #F2C811 !important;
-      }
+    .skill-tag.tag-tableau:hover {
+      border-color: #E97627 !important;
+      color: #E97627 !important;
+    }
+
+    .skill-tag.tag-uiux:hover {
+      border-color: #F24E1E !important;
+      color: #F24E1E !important;
+    }
+
+    .skill-tag.tag-git:hover {
+      border-color: #F05032 !important;
+      color: #F05032 !important;
+    }
+
+    .skill-tag.tag-linux:hover {
+      border-color: #FCC624 !important;
+      color: #FCC624 !important;
+    }
   </style>
 </head>
 
@@ -2084,9 +2120,7 @@
       <div class="hero-text">
         <p class="hero-label">Hello, I'm</p>
         <h1 class="hero-title">Mohamed <span>Irfan M</span></h1>
-        <p class="hero-desc">A <b>Developer & CS Engineering Graduate</b> focused on software & web development,data
-          analytics & technical support roles.I build solutions,analyze data & solve technical problems.
-        </p>
+        <p class="hero-desc">A <b>Developer &amp; CS Engineering Graduate</b> focused on Generative AI development, Python development, and Full-Stack web applications. I build scalable solutions and solve real-world technical problems.</p>
         <div class="hero-btns">
           <a href="#contact" class="btn btn-primary">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
@@ -2152,10 +2186,10 @@
       <p class="section-label">About Me</p>
       <h2 class="section-title">Who I Am</h2>
       <p class="about-text reveal">
-        A <strong>Computer Science Engineering graduate and Developer</strong> with a strong
-        interest in software &amp; web development, data analytics, and technical support roles.
-        I build practical solutions, analyze data, troubleshoot technical issues, and use technology
-        to solve real-world problems.
+        A <strong>Computer Science &amp; Engineering graduate and Developer</strong> with hands-on experience
+        in developing, deploying, and maintaining live web applications. Passionate about <strong>Generative AI
+        Development</strong>, <strong>Python</strong>, and <strong>Full-Stack Web Development</strong>, focusing
+        on building practical applications, exploring emerging AI technologies, and solving real-world challenges.
       </p>
       <div style="display:flex;justify-content:center;margin:18px 0 32px;" class="reveal">
         <a href="Mohamed_Irfan_CV.pdf" download="Mohamed_Irfan_CV.pdf" onclick="downloadCV(event)" class="btn btn-cv"
@@ -2231,9 +2265,42 @@
               </svg>
             </div>
             <p class="year">Certifications</p>
-            <h3>EC Council & Udemy</h3>
+            <h3>IBM, EC-Council & Udemy</h3>
           </div>
           <div class="cert-links cert-links-scrollable">
+            <a href="https://skills.yourlearning.ibm.com/certificate/share/425a8783a1ewogICJvYmplY3RUeXBlIiA6ICJBQ1RJVklUWSIsCiAgImxlYXJuZXJDTlVNIiA6ICI4ODMyMTI2UkVHIiwKICAib2JqZWN0SWQiIDogIlBMQU4tQkFFRkNDQUFENTIwIgp9607f14cb96-10" target="_blank"
+              rel="noreferrer" class="cert-link" title="Verify IBM Certificate"
+              style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Generative AI (IBM) →
+            </a>
+            <a href="https://www.udemy.com/certificate/UC-eaafda9f-3b19-4d42-8941-1be4018cae93/" target="_blank"
+              rel="noreferrer" class="cert-link" title="Verify Udemy Certificate"
+              style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              React.js (Udemy) →
+            </a>
+            <a href="https://www.udemy.com/certificate/UC-a1932b27-25f9-47a6-bb4d-e4be0a159e47/" target="_blank"
+              rel="noreferrer" class="cert-link" title="Verify Udemy Certificate"
+              style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Power BI (Udemy) →
+            </a>
             <a href="https://learn.eccouncil.org/certificate/167df997-6b45-4c06-ae6b-5d2ef38466c0" target="_blank"
               rel="noreferrer" class="cert-link" title="Verify EC Council Certificate"
               style="color:var(--primary);font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
@@ -2279,7 +2346,7 @@
       <h2 class="section-title">What I Work With</h2>
       <div class="skills-grid">
         <div class="skill-group reveal">
-          <h3>Technical</h3>
+          <h3>Languages & Core</h3>
           <div class="skill-tags">
             <span class="skill-tag tag-html" title="HTML5">
               <svg viewBox="0 0 24 24" width="15" height="15">
@@ -2305,12 +2372,14 @@
               </svg>
               JavaScript
             </span>
-            <span class="skill-tag tag-sql" title="SQL Database">
-              <svg viewBox="0 0 24 24" width="15" height="15">
-                <path fill="#00758F"
-                  d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm0 6c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2V8c0 .66 3.58 2 8 2zm0 5c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2v-3c0 .66 3.58 2 8 2z" />
+            <span class="skill-tag tag-react" title="React.js">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#61DAFB" stroke-width="1.8">
+                <ellipse cx="12" cy="12" rx="10" ry="4.2" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)" />
+                <circle cx="12" cy="12" r="1.8" fill="#61DAFB" />
               </svg>
-              SQL
+              React.js
             </span>
             <span class="skill-tag tag-python" title="Python">
               <svg viewBox="0 0 24 24" width="15" height="15">
@@ -2321,13 +2390,18 @@
               </svg>
               Python
             </span>
-            <span class="skill-tag tag-powerbi" title="Power BI">
-              <svg viewBox="0 0 24 24" width="15" height="15">
-                <rect x="2" y="13" width="5" height="9" rx="1" fill="#F2C811" opacity="0.8" />
-                <rect x="9.5" y="8" width="5" height="14" rx="1" fill="#F2C811" />
-                <rect x="17" y="3" width="5" height="19" rx="1" fill="#F2C811" />
+            <span class="skill-tag tag-fastapi" title="FastAPI">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#009688">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5l-5-7h4V6.5l5 7h-4v4z" />
               </svg>
-              Power BI
+              FastAPI
+            </span>
+            <span class="skill-tag tag-sql" title="SQL Database">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <path fill="#00758F"
+                  d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm0 6c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2V8c0 .66 3.58 2 8 2zm0 5c4.42 0 8-1.34 8-2v3c0 .66-3.58 2-8 2s-8-1.34-8-2v-3c0 .66 3.58 2 8 2z" />
+              </svg>
+              SQL
             </span>
             <span class="skill-tag tag-uiux" title="Ui/Ux & Figma">
               <svg viewBox="0 0 24 24" width="15" height="15">
@@ -2339,6 +2413,62 @@
                 <path fill="#0ACF83" d="M4 16a4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8a4 4 0 0 0-4 4z" />
               </svg>
               UI/UX
+            </span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>AI, Data & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag tag-genai" title="Generative AI">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#8E75FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/>
+                <path d="M19 16l1.2 2.8L23 20l-2.8 1.2L19 24l-1.2-2.8L15 20l2.8-1.2L19 16z"/>
+              </svg>
+              Gen-AI
+            </span>
+            <span class="skill-tag tag-llm" title="Large Language Models">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                <circle cx="12" cy="12" r="3" fill="#A855F7"/>
+              </svg>
+              LLMs
+            </span>
+            <span class="skill-tag tag-numpy" title="NumPy">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#4DABCF">
+                <path d="M4 4h4v3.5L14 4h6v16h-4v-3.5L10 20H4V4zm4 9.5V7.5L11 10l-3 3.5zm8-5v6l-3-2.5 3-3.5z"/>
+              </svg>
+              NumPy
+            </span>
+            <span class="skill-tag tag-pandas" title="Pandas">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <rect x="3" y="4" width="4" height="16" rx="1" fill="#150458"/>
+                <rect x="10" y="8" width="4" height="12" rx="1" fill="#E70488"/>
+                <rect x="17" y="4" width="4" height="8" rx="1" fill="#00A3E0"/>
+                <rect x="17" y="14" width="4" height="6" rx="1" fill="#FFD43B"/>
+              </svg>
+              Pandas
+            </span>
+            <span class="skill-tag tag-powerbi" title="Power BI">
+              <svg viewBox="0 0 24 24" width="15" height="15">
+                <rect x="2" y="13" width="5" height="9" rx="1" fill="#F2C811" opacity="0.8" />
+                <rect x="9.5" y="8" width="5" height="14" rx="1" fill="#F2C811" />
+                <rect x="17" y="3" width="5" height="19" rx="1" fill="#F2C811" />
+              </svg>
+              Power BI
+            </span>
+            <span class="skill-tag tag-tableau" title="Tableau">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="#E97627">
+                <rect x="11" y="2" width="2" height="7" rx="0.5"/>
+                <rect x="8.5" y="4.5" width="7" height="2" rx="0.5"/>
+                <rect x="11" y="15" width="2" height="7" rx="0.5"/>
+                <rect x="8.5" y="17.5" width="7" height="2" rx="0.5"/>
+                <rect x="2" y="11" width="7" height="2" rx="0.5"/>
+                <rect x="4.5" y="8.5" width="2" height="7" rx="0.5"/>
+                <rect x="15" y="11" width="7" height="2" rx="0.5"/>
+                <rect x="17.5" y="8.5" width="2" height="7" rx="0.5"/>
+                <circle cx="12" cy="12" r="1.5"/>
+              </svg>
+              Tableau
             </span>
             <span class="skill-tag tag-git" title="Git / GitHub">
               <svg viewBox="0 0 24 24" width="15" height="15">
@@ -2360,8 +2490,48 @@
           </div>
         </div>
         <div class="skill-group reveal">
-          <h3>Languages</h3>
+          <h3>Soft Skills & Languages</h3>
           <div class="skill-tags">
+            <span class="skill-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Cross-Functional Teamwork
+            </span>
+            <span class="skill-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              Client Communication
+            </span>
+            <span class="skill-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+              Problem Solving
+            </span>
+            <span class="skill-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              Quick Adaptability
+            </span>
+            <span class="skill-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              Leadership
+            </span>
             <span class="skill-tag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
@@ -2379,52 +2549,6 @@
                 <path d="M8 13h6" />
               </svg>
               Tamil
-            </span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Soft Skills</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-              Quick Adaptability
-            </span>
-            <span class="skill-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-              Problem Solving
-            </span>
-            <span class="skill-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M9 18h6" />
-                <path d="M10 22h4" />
-                <path
-                  d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
-              </svg>
-              Creative Thinking
-            </span>
-            <span class="skill-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                <polyline points="17 6 23 6 23 12" />
-              </svg>
-              Continuous Improvement
-            </span>
-            <span class="skill-tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              Leadership
             </span>
           </div>
         </div>
@@ -2459,9 +2583,8 @@
             <h3>Teclipse — Business Portfolio</h3>
             <span class="live-badge"><span class="live-dot"></span>Live</span>
           </div>
-          <p>Developed a business portfolio website (teclipse.in) to showcase services, courses, and projects with a
-            responsive, client-focused design.</p>
-          <div class="project-tags"><span># Web Design</span><span># Responsive</span><span># Portfolio</span></div>
+          <p>Built and deployed a full-stack platform (Firebase Firestore, Vercel serverless functions, Hostinger) with an authenticated admin panel and a testimonial/achievement carousel with lightbox view.</p>
+          <div class="project-tags"><span># Full-Stack</span><span># Firebase</span><span># Vercel</span><span># Admin Panel</span></div>
           <a href="https://teclipse.in" target="_blank" class="project-link"
             style="display:inline-flex;align-items:center;gap:6px;">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#10b981" stroke-width="2"
@@ -2476,9 +2599,8 @@
           <div class="project-header">
             <h3>Sevagan — Blood Donor Platform</h3><span class="live-badge"><span class="live-dot"></span>Live</span>
           </div>
-          <p>Web app connecting blood donors and recipients across cities. Built using single-file HTML with pure CSS &
-            JS . Features OTP login, Excel data storage, mobile-first design, and SMS alerts.</p>
-          <div class="project-tags"><span># HTML/CSS/JS</span><span># OTP Auth</span><span># SMS</span></div>
+          <p>Developed a web app connecting blood donors and recipients across cities with OTP-based login, Firebase data storage, and automated SMS alerts for fast emergency donor discovery.</p>
+          <div class="project-tags"><span># Web App</span><span># Firebase</span><span># OTP Auth</span><span># SMS Alerts</span></div>
           <a href="https://irfan1136.github.io/sevagan36/" target="_blank" class="project-link"
             style="display:inline-flex;align-items:center;gap:6px;">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#06b6d4" stroke-width="2"
@@ -2491,13 +2613,12 @@
         </div>
         <div class="card project-card reveal">
           <div class="project-header">
-            <h3>Developer Club - Dashboard </h3>
+            <h3>Student Developer Club Platform</h3>
             <span class="live-badge"><span class="live-dot"></span>Live</span>
           </div>
-          <p>Developed a website to monitoring the students with their Github and leetcode accounts . And showcase our
-            services, courses,anouncements with a responsive, client-focused design.</p>
-          <div class="project-tags"><span># Web Design</span><span># Responsive</span><span># Portfolio</span></div>
-          <a href="https://teclipse.in" target="_blank" class="project-link"
+          <p>Community platform for Al-Ameen Engineering College Student Developer Club to monitor student GitHub &amp; LeetCode progress, share club announcements, showcase events, and collaborate.</p>
+          <div class="project-tags"><span># Next.js</span><span># React</span><span># Vercel</span><span># GitHub API</span></div>
+          <a href="https://developer-club-aec.vercel.app/" target="_blank" class="project-link"
             style="display:inline-flex;align-items:center;gap:6px;">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#10b981" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
